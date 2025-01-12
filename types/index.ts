@@ -17,9 +17,11 @@ import {
     UserSignUpSchema,
     WebPageInputSchema,
   } from '@/lib/validator'
+
   import { z } from 'zod'
   
   export type IReviewInput = z.infer<typeof ReviewInputSchema>
+
   export type IReviewDetails = IReviewInput & {
     _id: string
     createdAt: string
@@ -27,6 +29,7 @@ import {
       name: string
     }
   }
+
   export type IProductInput = z.infer<typeof ProductInputSchema>
   
   export type Data = {
@@ -51,6 +54,7 @@ import {
       isPublished: boolean
     }[]
   }
+  
   // Order
   export type IOrderInput = z.infer<typeof OrderInputSchema>
   export type IOrderList = IOrderInput & {
