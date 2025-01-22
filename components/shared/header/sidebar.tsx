@@ -2,7 +2,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { X, ChevronRight, UserCircle, MenuIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-// import { SignOut } from '@/lib/actions/user.actions'
+import { SignOut } from '@/lib/actions/user.actions'
 import {
   Drawer,
   DrawerClose,
@@ -12,25 +12,25 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
-// import { auth } from '@/auth'
-// import { getLocale, getTranslations } from 'next-intl/server'
-// import { getDirection } from '@/i18n-config'
+import { auth } from '@/auth'
+import { getLocale, getTranslations } from 'next-intl/server'
+import { getDirection } from '@/i18n-config'
 
 export default async function Sidebar({
   categories,
 }: {
   categories: string[]
 }) {
-  // const session = await auth()
+  const session = await auth()
 
-  // const locale = await getLocale()
+  const locale = await getLocale()
 
-  // const t = await getTranslations()
+  const t = await getTranslations()
   return (
-    <Drawer >
+    <Drawer direction={getDirection(locale) === 'rtl' ? 'right' : 'left'}>
       <DrawerTrigger className='header-button flex items-center !p-2  '>
         <MenuIcon className='h-5 w-5 mr-1' />
-        {('Header.All')}
+        {t('Header.All')}
       </DrawerTrigger>
       <DrawerContent className='w-[350px] mt-0 top-0'>
         <div className='flex flex-col h-full'>
@@ -39,7 +39,7 @@ export default async function Sidebar({
             <DrawerHeader>
               <DrawerTitle className='flex items-center'>
                 <UserCircle className='h-6 w-6 mr-2' />
-                {/* {session ? (
+                {session ? (
                   <DrawerClose asChild>
                     <Link href='/account'>
                       <span className='text-lg font-semibold'>
@@ -55,7 +55,7 @@ export default async function Sidebar({
                       </span>
                     </Link>
                   </DrawerClose>
-                )} */}
+                )}
               </DrawerTitle>
               <DrawerDescription></DrawerDescription>
             </DrawerHeader>
@@ -71,7 +71,7 @@ export default async function Sidebar({
           <div className='flex-1 overflow-y-auto'>
             <div className='p-4 border-b'>
               <h2 className='text-lg font-semibold'>
-                {('Header.Shop By Department')}
+                {t('Header.Shop By Department')}
               </h2>
             </div>
             <nav className='flex flex-col'>
@@ -93,20 +93,20 @@ export default async function Sidebar({
           <div className='border-t flex flex-col '>
             <div className='p-4'>
               <h2 className='text-lg font-semibold'>
-                {('Header.Help & Settings')}
+                {t('Header.Help & Settings')}
               </h2>
             </div>
             <DrawerClose asChild>
               <Link href='/account' className='item-button'>
-                {('Header.Your account')}
+                {t('Header.Your account')}
               </Link>
             </DrawerClose>{' '}
             <DrawerClose asChild>
               <Link href='/page/customer-service' className='item-button'>
-                {('Header.Customer Service')}
+                {t('Header.Customer Service')}
               </Link>
             </DrawerClose>
-            {/* {session ? (
+            {session ? (
               <form action={SignOut} className='w-full'>
                 <Button
                   className='w-full justify-start item-button text-base'
@@ -119,7 +119,7 @@ export default async function Sidebar({
               <Link href='/sign-in' className='item-button'>
                 {t('Header.Sign in')}
               </Link>
-            )} */}
+            )}
           </div>
         </div>
       </DrawerContent>

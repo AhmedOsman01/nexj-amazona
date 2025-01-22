@@ -94,6 +94,7 @@ export function calculateFutureDate(days: number) {
   currentDate.setDate(currentDate.getDate() + days)
   return currentDate
 }
+
 export function getMonthName(yearMonth: string): string {
   const [year, month] = yearMonth.split('-').map(Number)
   const date = new Date(year, month - 1)
