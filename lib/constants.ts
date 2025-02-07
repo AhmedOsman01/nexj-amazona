@@ -1,4 +1,4 @@
-export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "NextAmazona";
+export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "Next-Amazona";
 export const SERVER_URL = process.env.SERVER_URL || "http://localhost:3000";
 export const APP_SLOGAN =
   process.env.NEXT_PUBLIC_APP_SLOGAN || "Spend less. enjoy more.";
@@ -7,7 +7,8 @@ export const APP_DESCRIPTION =
   "An Amazon clone built with Next.js, MongoDB, Shadcn";
 
 export const SENDER_NAME = process.env.SENDER_NAME || "Ahmed";
-export const SENDER_EMAIL = process.env.SENDER_EMAIL || "Ahmedosmanelhady@gmail.com";
+export const SENDER_EMAIL =
+  process.env.SENDER_EMAIL || "Ahmedosmanelhady@gmail.com";
 
 export const USER_ROLES = ["Admin", "User"];
 export const COLORS = ["Gold", "Green", "Red"];

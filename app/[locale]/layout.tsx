@@ -1,13 +1,15 @@
 import { Geist, Geist_Mono } from 'next/font/google'
-import '../globals.css'
+import './globals.css'
 import ClientProviders from '@/components/shared/client-providers'
 import { getDirection } from '@/i18n-config'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
-import { notFound } from 'next/navigation'
+
 import { getSetting } from '@/lib/actions/setting.actions'
 import { cookies } from 'next/headers'
+import { notFound } from 'next/navigation'
+
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -53,20 +55,22 @@ export default async function AppLayout({
   const messages = await getMessages()
 
   return (
-    <html
-      lang={locale}
-      dir={getDirection(locale) === 'rtl' ? 'rtl' : 'ltr'}
-      suppressHydrationWarning
-    >
-      <body
-        className={`min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}
+    <>
+      <html
+        lang={locale}
+        dir={getDirection(locale) === 'rtl' ? 'rtl' : 'ltr'}
+        suppressHydrationWarning
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ClientProviders setting={{ ...setting, currency }}>
-            {children}
-          </ClientProviders>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+        <body
+          className={`min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <ClientProviders setting={{ ...setting, currency }}>
+              {children}
+            </ClientProviders>
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </>
   )
 }

@@ -34,7 +34,7 @@ const ProductPrice = ({
     : [stringValue, '']
 
   return plain ? (
-    format.number(convertedPrice, {
+    format?.number(convertedPrice, {
       style: 'currency',
       currency: currency.code,
       currencyDisplay: 'narrowSymbol',
