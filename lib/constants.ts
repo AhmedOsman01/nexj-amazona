@@ -1,4 +1,4 @@
-export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "Next-Amazona";
+export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "Abotig Shop";
 export const SERVER_URL = process.env.SERVER_URL || "http://localhost:3000";
 export const APP_SLOGAN =
   process.env.NEXT_PUBLIC_APP_SLOGAN || "Spend less. enjoy more.";

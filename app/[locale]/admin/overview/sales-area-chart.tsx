@@ -64,22 +64,22 @@ export default function SalesAreaChart({ data }: { data: any[] }) {
 
   return (
     <>
-    <ResponsiveContainer width='100%' height={400}>
-      <AreaChart data={data}>
-        <CartesianGrid horizontal={true} vertical={false} stroke='' />
-        <XAxis dataKey='date' tick={<CustomXAxisTick />} interval={3} />
-        <YAxis fontSize={12} tickFormatter={(value: number) => `$${value}`} />
-        <Tooltip content={<CustomTooltip />} />
-        <Area
-          type='monotone'
-          dataKey='totalSales'
-          stroke={STROKE_COLORS[color.name][theme || 'light']}
-          strokeWidth={2}
-          fill={`hsl(${cssColors['--primary']})`}
-          fillOpacity={0.8}
-        />
-      </AreaChart>
-    </ResponsiveContainer>
+      <ResponsiveContainer width='100%' height={400}>
+        <AreaChart data={data}>
+          <CartesianGrid horizontal={true} vertical={false} stroke='' />
+          <XAxis dataKey='date' tick={<CustomXAxisTick />} interval={3} />
+          <YAxis fontSize={12} tickFormatter={(value: number) => `$${value}`} />
+          <Tooltip content={<CustomTooltip />} />
+          <Area
+            type='monotone'
+            dataKey='totalSales'
+            stroke={STROKE_COLORS[color.name][theme || 'light']}
+            strokeWidth={2}
+            fill={`hsl(${cssColors['--primary']})`}
+            fillOpacity={0.8}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </>
   )
 }
